@@ -3,6 +3,7 @@ import {Loader, Card, FormField} from "../components";
 import axios from "axios";
 import {IPost} from "../models/IPost";
 
+
 interface IRenderCards {
     data: IPost[] | null,
     title: string
@@ -39,7 +40,7 @@ const Home = () => {
             setLoading(true)
 
             try {
-                const {data} = await axios.get('http://localhost:8080/api/v1/post')
+                const {data} = await axios.get(`${import.meta.env.VITE_BASE_URL}api/v1/post`)
 
                 if (data.success) {
                     setAllPosts(data.data.reverse())

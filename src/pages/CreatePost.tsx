@@ -25,7 +25,7 @@ const CreatePost = () => {
             setLoading(true)
 
             try {
-                await axios.post(`http://localhost:8080/api/v1/post`, JSON.stringify(form), {
+                await axios.post(`${import.meta.env.VITE_BASE_URL}api/v1/post`, JSON.stringify(form), {
                     headers: {
                         'Content-Type': 'application/json'
                     }
@@ -60,7 +60,7 @@ const CreatePost = () => {
             try {
                 setGeneratingImg(true)
 
-                const {data} = await axios.post('http://localhost:8080/api/v1/dalle', {
+                const {data} = await axios.post(`${import.meta.env.VITE_BASE_URL}api/v1/dalle`, {
                     prompt: form.prompt
                 }, {
                     headers: {
